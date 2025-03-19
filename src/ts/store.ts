@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import battlefieldSlice from "./reducers/BattlefieldSlice";
+import appDataSlice from "./reducers/AppDataSlice";
 
 export const store = configureStore({
 	reducer: {
-		battlefield: battlefieldSlice,
+		appData: appDataSlice,
 	},
 });
 

@@ -1,34 +1,25 @@
-import { createContext, useContext, useEffect, useRef } from "react";
-import theGameLoop from "./the-game/game-loop";
-import UnitsList from "./ui/UnitsList";
-import GameData from "./types/gameData";
-
-const GameDataContext = createContext<GameData>(null);
+import { useEffect } from "react";
+import Table from "./elements/Table";
+import { store } from "./store";
+import { setNewBranches } from "./reducers/AppDataSlice";
+import getData from "./api/get-data";
 
 function App() {
-	const gameData = useRef<GameData>(null);
-
 	useEffect(() => {
-		gameData.current = theGameLoop();
-
-		// clears game loop, coz useEffect is called twice in development mode
-		return () => {
-			clearInterval(gameData.current.settings.gameLoopId);
-		};
-	});
+		(async () => {
+			const newBranches = await getData(6);
+			store.dispatch(
+				setNewBranches({
+					newBranches: newBranches,
+				}),
+			);
+		})();
+	}, []);
 	return (
-		<GameDataContext.Provider value={gameData.current}>
-			<div className="app">
-				<h1>I&apos;m basic app</h1>
-				<UnitsList />
-			</div>
-		</GameDataContext.Provider>
+		<div className="app">
+			<Table />
+		</div>
 	);
 }
 
 export default App;
-
-export function getGameData() {
-	// console.log(useContext(GameDataContext));
-	return useContext(GameDataContext);
-}
