@@ -8,7 +8,7 @@ import Searcher from "./elements/Searcher";
 function App() {
 	useEffect(() => {
 		(async () => {
-			const newBranches = await getData(6);
+			const newBranches = await getData(25);
 			store.dispatch(
 				setBranches({
 					newBranches: newBranches,

@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
-import AppData from "../types/appData";
+import AppData, { SortType } from "../types/appData";
 import initialiseApp from "../app/initialiseApp";
 import { Branches } from "../types/branches";
 
@@ -19,10 +19,18 @@ export const appDataSlice = createSlice({
 		) => {
 			return { ...state, branches: action.payload.newBranches };
 		},
+		setSorting: (
+			state,
+			action: PayloadAction<{
+				newSorting: SortType;
+			}>,
+		) => {
+			return { ...state, currentSort: action.payload.newSorting };
+		},
 	},
 });
 
-export const { setBranches } = appDataSlice.actions;
+export const { setBranches, setSorting } = appDataSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectAppData = (state: RootState) => state.appData;

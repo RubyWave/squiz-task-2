@@ -1,7 +1,7 @@
 {
-	"name": "Fantasy Battle Simulator",
+	"name": "Squiz test app",
 	"version": "1.0.0",
-	"description": "Simulator of Fantasy Battle",
+	"description": "Test app for Squiz",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",

@@ -1,5 +1,6 @@
 import { useAppSelector } from "../hooks";
 import { Branch } from "../types/branches";
+import HeadingRow from "./HeadingRow";
 import Row from "./Row";
 
 export default function Table() {
@@ -7,13 +8,7 @@ export default function Table() {
 	return (
 		<table className="main-table">
 			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Country</th>
-					<th>Industry</th>
-					<th>Number of Employees</th>
-				</tr>
+				<HeadingRow />
 			</thead>
 			<tbody>
 				{appData.branches.map((singleBranch: Branch) => (

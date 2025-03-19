@@ -25,4 +25,18 @@
         overflow-y: scroll;
         display: table;
     }
+
+    .sorting-header {
+        cursor: pointer;
+
+        .sorting-header__label {
+            text-decoration: underline;
+        }
+
+        &__arrow {
+            margin-left: 0.25rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+    }
 }

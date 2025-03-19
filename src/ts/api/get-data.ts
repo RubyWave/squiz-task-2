@@ -3,7 +3,6 @@ import { Branch, Branches } from "../types/branches";
 export default async function getData(
 	numberOfDataToFetch: number,
 ): Promise<Branches> {
-	console.log(numberOfDataToFetch);
 	const response = await fetch(
 		"https://dujour.squiz.cloud/developer-challenge/data",
 	);

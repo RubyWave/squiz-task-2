@@ -29,7 +29,7 @@ export default function initialiseApp(): AppData {
 				hidden: false,
 			},
 		],
-		currentSort: "none",
+		currentSort: "default",
 	};
 	return data;
 }

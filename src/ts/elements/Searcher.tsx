@@ -10,7 +10,7 @@ export default function Searcher({
 	label: string;
 	fieldToSearch: string;
 }) {
-	const [query, setQuery] = useState("");
+	const [query, setQuery] = useState<string>("");
 	const appData = useAppSelector((state) => state.appData);
 
 	function queryBranches(query: string) {
