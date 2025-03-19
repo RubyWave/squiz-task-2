@@ -1,0 +1,8 @@
+{
+	"name": "peasant",
+	"prettyName": "Peasant",
+	"attack": 6,
+	"defence": 4,
+	"hitPoints": 40
+	
+}
