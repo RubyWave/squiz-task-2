@@ -1,4 +1,4 @@
-import { Branches } from "../types/branches";
+import { Branch, Branches } from "../types/branches";
 
 export default async function getData(
 	numberOfDataToFetch: number,
@@ -7,7 +7,11 @@ export default async function getData(
 	const response = await fetch(
 		"https://dujour.squiz.cloud/developer-challenge/data",
 	);
-	const data = await response.json();
+	let data = await response.json();
 	data.splice(numberOfDataToFetch);
+	data = data.map((singleBranch: Branch) => {
+		singleBranch.hidden = false;
+		return singleBranch;
+	});
 	return data;
 }

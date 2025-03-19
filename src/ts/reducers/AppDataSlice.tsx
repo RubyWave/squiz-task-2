@@ -11,7 +11,7 @@ export const appDataSlice = createSlice({
 	// `createSlice` will infer the state type from the `initialState` argument
 	initialState: emptyAppData, //initial state is same as initial variable
 	reducers: {
-		setNewBranches: (
+		setBranches: (
 			state,
 			action: PayloadAction<{
 				newBranches: Branches;
@@ -22,7 +22,7 @@ export const appDataSlice = createSlice({
 	},
 });
 
-export const { setNewBranches } = appDataSlice.actions;
+export const { setBranches } = appDataSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectAppData = (state: RootState) => state.appData;

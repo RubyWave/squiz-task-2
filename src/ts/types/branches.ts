@@ -4,6 +4,7 @@ export type Branch = {
 	country: string;
 	industry: string;
 	numberOfEmployees: number;
+	hidden: boolean; // can be set as true to hide branch, for example when querying
 };
 
 export type Branches = Array<Branch>;
