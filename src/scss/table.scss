@@ -1,0 +1,28 @@
+.main-table {
+    width: 80%;
+    border: 0.25rem solid black;
+    border-radius: 0.125rem;
+    border-collapse: collapse;
+    margin: 0 auto;
+
+
+
+    thead,
+    tbody {
+        width: 100%;
+    }
+
+    th,
+    td {
+        border-right: 0.0625rem solid black;
+        border-bottom: 0.0625rem solid black;
+        padding: 1.25rem 1rem;
+    }
+
+    &__wrapper {
+        // this limit for max height is to add infinite scroll to the table
+        max-height: 15rem;
+        overflow-y: scroll;
+        display: table;
+    }
+}

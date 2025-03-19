@@ -17,6 +17,7 @@ function App() {
 	}, []);
 	return (
 		<div className="app">
+			<div className="temp-spacer"></div>
 			<Table />
 		</div>
 	);
