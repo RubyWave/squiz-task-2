@@ -3,7 +3,7 @@ import Table from "./elements/Table";
 import { store } from "./store";
 import { setBranches } from "./reducers/AppDataSlice";
 import getData from "./api/get-data";
-import Searcher from "./elements/Searcher";
+import Filter from "./elements/Filter";
 
 function App() {
 	useEffect(() => {
@@ -19,8 +19,8 @@ function App() {
 	return (
 		<div className="app">
 			<div className="search-bar">
-				<Searcher label="Country" fieldToSearch="country" />
-				<Searcher label="Industry" fieldToSearch="industry" />
+				<Filter label="Country" fieldToSearch="country" />
+				<Filter label="Industry" fieldToSearch="industry" />
 			</div>
 			<Table />
 		</div>

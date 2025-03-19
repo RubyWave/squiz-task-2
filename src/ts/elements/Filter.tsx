@@ -3,7 +3,7 @@ import { store } from "../store";
 import { setBranches } from "../reducers/AppDataSlice";
 import { useAppSelector } from "../hooks";
 
-export default function Searcher({
+export default function Filter({
 	label,
 	fieldToSearch,
 }: {
