@@ -11,7 +11,11 @@ export default function Row({ singleBranch }: { singleBranch: Branch }) {
 			appData.branches.findIndex((branch) => branch.branchQueried) ===
 			appData.branches.findIndex((branch) => branch === singleBranch);
 
-		if (ifFirstQueriedElement && singleBranch.branchQueried === true) {
+		if (
+			ifFirstQueriedElement &&
+			singleBranch.branchQueried === true &&
+			elementRef.current
+		) {
 			elementRef.current.scrollIntoView({
 				behavior: "smooth",
 				block: "center",

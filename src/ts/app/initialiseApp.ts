@@ -10,7 +10,7 @@ export default function initialiseApp(): AppData {
 				country: "Country 1",
 				industry: "Industry 1",
 				numberOfEmployees: 100,
-				hidden: true,
+				hidden: false,
 				branchQueried: false,
 			},
 			{
@@ -19,7 +19,7 @@ export default function initialiseApp(): AppData {
 				country: "Country 2",
 				industry: "Industry 2",
 				numberOfEmployees: 200,
-				hidden: true,
+				hidden: false,
 				branchQueried: false,
 			},
 			{
@@ -28,7 +28,7 @@ export default function initialiseApp(): AppData {
 				country: "Country 3",
 				industry: "Industry 3",
 				numberOfEmployees: 132,
-				hidden: true,
+				hidden: false,
 				branchQueried: false,
 			},
 		],
