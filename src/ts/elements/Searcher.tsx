@@ -5,7 +5,9 @@ import { setBranches } from "../reducers/AppDataSlice";
 import { useAppSelector } from "../hooks";
 
 export default function Searcher() {
-	const [query, setQuery] = useState<string>("");
+	const [query, setQuery] = useState<string>(
+		sessionStorage.getItem("querySearcher") || "",
+	);
 	const appData = useAppSelector((state) => state.appData);
 
 	function queryBranches(query: string) {
@@ -29,7 +31,9 @@ export default function Searcher() {
 	function onChange(e: React.ChangeEvent<HTMLInputElement>) {
 		setQuery(e.target.value);
 	}
-
+	React.useEffect(() => {
+		sessionStorage.setItem("querySearcher", query);
+	}, [query]);
 	return (
 		<form onSubmit={handleSubmit} className="searcher">
 			<label>

@@ -10,7 +10,10 @@ export default function Filter({
 	label: string;
 	fieldToSearch: string;
 }) {
-	const [query, setQuery] = useState<string>("");
+	const [query, setQuery] = useState<string>(
+		sessionStorage.getItem("query" + fieldToSearch) || "",
+	);
+
 	const appData = useAppSelector((state) => state.appData);
 
 	function queryBranches(query: string) {
@@ -37,7 +40,9 @@ export default function Filter({
 		setQuery(e.target.value);
 		queryBranches(e.target.value);
 	}
-
+	React.useEffect(() => {
+		sessionStorage.setItem("query" + fieldToSearch, query);
+	}, [query]);
 	return (
 		<form onSubmit={handleSubmit} className="filter">
 			<label>
