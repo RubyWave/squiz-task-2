@@ -2,17 +2,36 @@
     margin: 0 auto;
     padding: 1rem;
     width: 80%;
-
-}
-
-.searcher {
-    margin-bottom: 0.5rem;
     display: flex;
-    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
 
-    label {
-        span {
-            margin-right: 0.25rem;
+    .searcher {
+        margin-top: auto;
+        display: flex;
+        gap: 0.25rem;
+        margin-left: auto;
+
+        label {
+            span {
+                margin-right: 0.25rem;
+            }
         }
+    }
+
+    .filter {
+        display: flex;
+        gap: 0.25rem;
+
+        label {
+            span {
+                margin-right: 0.25rem;
+            }
+        }
+    }
+
+    &__filters {
+        display: grid;
+        gap: 0.5rem
     }
 }

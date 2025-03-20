@@ -1,26 +1,20 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import { store } from "../store";
 import { setBranches } from "../reducers/AppDataSlice";
 import { useAppSelector } from "../hooks";
 
-export default function Filter({
-	label,
-	fieldToSearch,
-}: {
-	label: string;
-	fieldToSearch: string;
-}) {
+export default function Searcher() {
 	const [query, setQuery] = useState<string>("");
 	const appData = useAppSelector((state) => state.appData);
 
 	function queryBranches(query: string) {
 		const filteredBranches = appData.branches.map((branch) => {
-			const checkedValue = String(
-				branch[fieldToSearch as keyof typeof branch],
-			);
+			const checkedValue = String(branch.name);
+			if (query === "") return { ...branch, branchQueried: false }; // clears if no query was provided
 			if (checkedValue.toLowerCase().includes(query.toLowerCase())) {
-				return { ...branch, hidden: false };
-			} else return { ...branch, hidden: true };
+				return { ...branch, branchQueried: true };
+			} else return { ...branch, branchQueried: false };
 		});
 		store.dispatch(
 			setBranches({
@@ -30,21 +24,19 @@ export default function Filter({
 	}
 	function handleSubmit(event: React.FormEvent) {
 		event.preventDefault();
-
 		queryBranches(query);
 	}
 	function onChange(e: React.ChangeEvent<HTMLInputElement>) {
 		setQuery(e.target.value);
-		queryBranches(e.target.value);
 	}
 
 	return (
-		<form onSubmit={handleSubmit} className="filter">
+		<form onSubmit={handleSubmit} className="searcher">
 			<label>
-				<span>{label}</span>
+				<span>Name</span>
 				<input type="text" value={query} onChange={onChange} />
 			</label>
-			<button type="submit">Filter</button>
+			<button type="submit">Search</button>
 		</form>
 	);
 }
