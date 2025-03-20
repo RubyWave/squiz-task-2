@@ -3,6 +3,7 @@ import type { RootState } from "../store";
 import AppData, { SortType } from "../types/appData";
 import initialiseApp from "../app/initialiseApp";
 import { Branches } from "../types/branches";
+import sortBranches from "../app/sortBranches";
 
 const emptyAppData: AppData = initialiseApp();
 
@@ -17,7 +18,11 @@ export const appDataSlice = createSlice({
 				newBranches: Branches;
 			}>,
 		) => {
-			return { ...state, branches: action.payload.newBranches };
+			const sortedBranches = sortBranches(
+				action.payload.newBranches,
+				state.currentSort,
+			);
+			return { ...state, branches: sortedBranches };
 		},
 		setSorting: (
 			state,

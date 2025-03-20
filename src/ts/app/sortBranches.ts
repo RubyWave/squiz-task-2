@@ -1,7 +1,11 @@
-import AppData, { SortType } from "../types/appData";
+import { SortType } from "../types/appData";
+import { Branches } from "../types/branches";
 
-export default function sortBranches(appData: AppData, sortingMode: SortType) {
-	const branchesCopy = [...appData.branches];
+export default function sortBranches(
+	branchesToSort: Branches,
+	sortingMode: SortType,
+) {
+	const branchesCopy = [...branchesToSort];
 	let sortedBranches;
 	switch (sortingMode) {
 		case "default": // sorts by ID

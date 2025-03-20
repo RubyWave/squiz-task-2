@@ -26,13 +26,13 @@ function SingleHeading({
 				newSorting = "default";
 			}
 			store.dispatch(
-				setBranches({
-					newBranches: sortBranches(appData, newSorting),
+				setSorting({
+					newSorting: newSorting,
 				}),
 			);
 			store.dispatch(
-				setSorting({
-					newSorting: newSorting,
+				setBranches({
+					newBranches: sortBranches(appData.branches, newSorting),
 				}),
 			);
 		}
