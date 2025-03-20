@@ -10,6 +10,7 @@ export type SortType =
 interface AppData {
 	branches: Branches;
 	currentSort: SortType;
+	loadedData: number; // number of loaded data, it should start with 8
 }
 
 export default AppData;

@@ -33,6 +33,7 @@ export default function initialiseApp(): AppData {
 			},
 		],
 		currentSort: "default",
+		loadedData: 3, // 3 inital data
 	};
 	return data;
 }

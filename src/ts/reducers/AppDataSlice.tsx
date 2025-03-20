@@ -27,10 +27,18 @@ export const appDataSlice = createSlice({
 		) => {
 			return { ...state, currentSort: action.payload.newSorting };
 		},
+		setLoadedData: (
+			state,
+			action: PayloadAction<{
+				newNumber: number;
+			}>,
+		) => {
+			return { ...state, loadedData: action.payload.newNumber };
+		},
 	},
 });
 
-export const { setBranches, setSorting } = appDataSlice.actions;
+export const { setBranches, setSorting, setLoadedData } = appDataSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectAppData = (state: RootState) => state.appData;
