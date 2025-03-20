@@ -1,3 +1,9 @@
+@use 'variables' as *;
+
+html {
+    font-size: 16px;
+}
+
 body {
     width: 100vw;
     height: 100vh;
@@ -20,11 +26,30 @@ body {
 }
 
 .app {
-    height: 101%;
+    min-height: 101%; // this extra height is for app to always be able to scroll atleast somewhat, so new data can be fetched
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     margin: 0 auto;
     padding: 1rem;
     width: 80%;
+    position: relative;
+    box-sizing: border-box;
+
+
+    @media (max-width: 900px) {
+        display: block;
+        width: 95%;
+        padding: 0;
+    }
+
+    &__data-side,
+    &__chart-side {
+        @media (max-width: 900px) {
+            max-width: 100%;
+            position: relative;
+        }
+    }
+    &__chart-side {
+    }
 }

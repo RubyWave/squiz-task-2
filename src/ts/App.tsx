@@ -61,7 +61,7 @@ function App() {
 					</div>
 					<Table />
 				</div>
-				<div className="app__graph-side">
+				<div className="app__chart-side">
 					<Chart />
 				</div>
 			</div>

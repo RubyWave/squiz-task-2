@@ -3,28 +3,57 @@
     margin-bottom: 0.5rem;
     gap: 1rem;
 
+    @media (max-width: 900px) {
+        flex-direction: column;
+    }
+
+    .searcher,
+    .filter {
+        label {
+            flex: 1;
+            display: flex;
+
+            @media (max-width: 900px) {
+                font-size: 0.875rem;
+            }
+
+            span {
+                margin-right: 0.25rem;
+
+            }
+
+            input {
+                min-width: none;
+
+                @media (max-width: 900px) {
+                    flex: 1;
+                }
+            }
+        }
+
+        button {
+            padding: 0.125rem 0.75rem;
+            border-radius: 0;
+            transition: background 0.15s ease-in-out;
+        }
+    }
+
     .searcher {
         margin-top: auto;
         display: flex;
         gap: 0.25rem;
         margin-left: auto;
 
-        label {
-            span {
-                margin-right: 0.25rem;
-            }
+        @media (max-width: 900px) {
+            margin-left: 0;
         }
+
+
     }
 
     .filter {
         display: flex;
         gap: 0.25rem;
-
-        label {
-            span {
-                margin-right: 0.25rem;
-            }
-        }
     }
 
     &__filters {
